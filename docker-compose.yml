@@ -4,15 +4,11 @@ services:
   web:
     build: .
     ports:
-      - "${PORT}:3000"
+      - "3000:3000"
     networks:
       - app-network
-    environment:
-      - DB_URI=${DB_URI}
-      - JWT_SECRET=${JWT_SECRET}
-      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
-      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
-      - CLOUDINARY_API_ESCRET=${CLOUDINARY_API_ESCRET}
+    volumes:
+      - .:/home/node
     depends_on:
       - mongo
 
@@ -20,6 +16,8 @@ services:
     image: mongo:latest
     networks:
       - app-network
+    volumes:
+      - data:/data/db
 
 networks:
     app-network:
