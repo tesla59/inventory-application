@@ -118,6 +118,20 @@ $ npm run server (for Node server side development)
 $ npm run client (for React client side development)
 $ npm run dev (for both client and server side)
 ```
+
+To run using docker-compose, run:
+```
+$ cd inventory-application
+$ npm install (install backend dependencies)
+$ cd views
+$ npm install (install frontend dependencies)
+$ cd ..
+$ docker-compose up
+```
+
+node v10.15.0 & npm 6.4.1 must be installed on host machine to run since the code is bind mounted
+
+
 ## &nbsp; ENV
 - PORT=
 - DB_URI=
